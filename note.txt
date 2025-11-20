@@ -1,0 +1,309 @@
+AI Multi-Agent Simulation Suite
+A collection of 10 AI-based competitive simulations using BFS, A*, Heuristics & Rule-based Agents.
+📌 1. Overview
+
+This repository contains 10 AI simulation environments developed using Python.
+The goal of each simulation is to demonstrate:
+
+Multi-Agent Behavior
+
+Pathfinding (BFS / A*)
+
+Heuristic Strategies
+
+Game-like Competitive Decision Making
+
+Real-time Simulation Logic
+
+AI Planning vs Greedy vs Random Behavior
+
+Each problem uses a different AI method.
+ASCII visualizations and terminal outputs help understand every step.
+
+📂 2. Project List
+#	Simulation Name	Algorithms Used	AI Type
+1	Treasure Grab	BFS	Competitive Pathfinding
+2	Capture the Flag	A* Search	Strategic & Defensive AI
+3	Resource War	BFS with Spawn Logic	Resource Acquisition AI
+4	Smart Snake Duel	Heuristics	Predator-Like Competition
+5	Predator–Prey	Greedy Avoidance + Random Walk	Survival AI
+6	Maze Domination	Multi-agent Expansion	Territory Control
+7	Competitive Cleaner	BFS	Grid Cleaning AI
+8	Market Trader Duel	Rule-based + Random	Economics AI
+9	Bidding War	Heuristic Bidding	Market Strategy
+10	Grid Racing AI	A*	Race Simulation
+⚙️ 3. Technologies Used
+
+Python 3
+
+BFS Algorithm
+
+A* Search with Heuristics
+
+Randomized Agents
+
+Rule-based AI
+
+ASCII Grid Rendering
+
+Matplotlib (for chart in Trader Duel)
+
+Pygame (optional — visual simulations provided)
+
+🖥️ 4. How to Run Any Simulation
+python <filename>.py
+
+
+No additional dependencies unless mentioned.
+
+===================================================================
+🧩 5. DETAILED PROJECT EXPLANATIONS
+
+(With ASCII diagrams + Algorithms)
+
+===================================================================
+⭐ 1. Treasure Grab – Competitive BFS Agents
+Algorithm Used: BFS (Breadth-First Search)
+
+Agents A and B both search for the nearest coin C.
+
+ASCII Grid Example
+. C . . C
+. . . C .
+A . . . B
+. C . . .
+C . . C .
+
+Key Concepts
+
+Each agent performs BFS from its current position.
+
+First step in path is chosen → 1-step movement per turn.
+
+If both reach a coin simultaneously → both get a point.
+
+No interference (agents don’t block).
+
+Why BFS?
+
+Because BFS always finds the nearest coin in an unweighted grid.
+
+⭐ 2. Capture the Flag – A* Search AI
+Algorithm Used: A* Search with Manhattan Heuristic
+ASCII Map
+FA . . . . . FB
+.  . . . . . .
+.  # # # . . .
+.  . A . . . .
+.  . . . B . .
+.  . . . . . .
+FA . . . . . FB
+
+Agent Behaviors
+
+If enemy near its flag → DEFEND
+
+Else → ATTACK (move toward enemy flag)
+
+A* computes the optimal path around walls.
+
+Why A*?
+
+Faster than BFS and gives optimal path using heuristic.
+
+⭐ 3. Resource War – Dynamic BFS with Spawning
+
+Every 3 steps, a new resource R spawns.
+
+Both agents use BFS to reach nearest resource.
+
+If both reach same R → both get 1 point.
+
+ASCII Spawn Example
+. . R . . . .
+. . . . . . .
+. . . A . . .
+. . . . . B .
+
+⭐ 4. Smart Snake Duel – Heuristic Snake AI
+Algorithm Used:
+
+Safe-move pruning
+
+Distance-based greedy movement
+
+Collision survival logic
+
+Key Features
+
+Snakes move toward food.
+
+Avoid collisions.
+
+Head-on collision winner decided by score.
+
+A . . . . . . . . .
+. . . . . . . . . .
+. . F . . . . . . .
+. . . . . . . . . .
+. . . . . B . . . .
+
+⭐ 5. Predator–Prey Escape Game
+Algorithms Used:
+
+Predator → Random
+
+Prey → Greedy escape (maximizes Manhattan distance)
+
+Anti-oscillation logic
+
+P . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . E
+
+Win Conditions
+
+Predator catches prey.
+
+Prey survives 50 steps.
+
+⭐ 6. Maze Domination – Territory Expansion AI
+Algorithm Used:
+
+Multi-Agent Grid Expansion (Local Neighborhood Search)
+
+ASCII Example
+A . . # . . B
+. . . # . . .
+. # . . . # .
+. . . . . . .
+. # . . . # .
+. . . # . . .
+A . . # . . B
+
+Rules
+
+A and B expand into adjacent empty cells.
+
+If both try same cell → mark as X (conflict).
+
+⭐ 7. Competitive Cleaner – BFS Cleaning Bots
+Algorithm Used: BFS to nearest dirt cell
+D D . . D D D
+. D . D . . D
+A . D . D . .
+. . . . . D .
+. D . D . . D
+. . D . D . .
+D D . . D B D
+
+
+Each agent:
+
+BFS → find nearest dirt
+
+Move 1 step
+
+Clean if standing on D
+
+A Matplotlib bar chart shows final performance.
+
+⭐ 8. Market Trader Duel – Profit Competition
+Agent A Strategy: Momentum
+
+If price going up → buy
+
+If price going down → sell
+
+Agent B Strategy: Mean Reversion
+
+Buy when price < average
+
+Sell when price > average
+
+Output: ASCII + Line Chart
+⭐ 9. Bidding War – Heuristic Auction AI
+Agent A: Rule-Based
+
+Expensive items → high bid
+
+Cheap items → low bid
+
+Agent B: Completely Random
+ASCII Output Example
+Item 3 | Base: 40
+A bids: 49
+B bids: 72
+Winner: B
+
+⭐ 10. Grid Racing AI – A* Race to Goal
+Algorithm Used: A*
+
+Agents start on opposite sides and race to the same goal avoiding obstacles.
+
+A . . # . . . . . .
+. . . . # . . . . .
+. # . . . . # . . .
+. . . . . . . . . .
+B . . . # . . . . G
+
+===================================================================
+📘 6. General AI Logic (for Viva)
+===================================================================
+🎯 Explain BFS in 2 lines:
+
+BFS explores neighbors level by level and always finds the shortest path in an unweighted grid.
+
+🎯 Explain A* Search:
+
+A* uses
+f(n) = g(n) + h(n)
+to find optimal paths faster than BFS.
+
+🎯 What is a Heuristic?
+
+A function that estimates the cost to reach the goal (ex: Manhattan distance).
+
+🎯 Why use deep copy in Treasure Grab?
+
+To prevent scoring errors by freezing the grid state before agents move.
+
+🎯 Why use greedy logic in Snake & Prey?
+
+Greedy decisions work well in fast-moving competitive environments.
+
+🎯 Why conflict cells marked X in Maze Domination?
+
+To ensure fairness when both agents try to claim the same territory.
+
+===================================================================
+📑 7. Future Enhancements
+===================================================================
+
+Add Pygame GUI to all simulations
+
+Add multi-agent reinforcement learning
+
+Add scoring dashboards
+
+Add logging & replay system
+
+===================================================================
+🏁 8. Conclusion
+===================================================================
+
+This repository demonstrates 10 complete AI simulations using modern algorithms such as BFS, A*, greedy heuristics, multi-agent logic, and competitive strategy models.
+
+Each simulation visualizes:
+
+Decision making
+
+Pathfinding
+
+Competition
+
+Resource management
+
+Strategy & survival
+
+Perfect for academic submission, AI learning, or experimentation.
